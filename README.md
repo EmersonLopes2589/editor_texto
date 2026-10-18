@@ -1,93 +1,158 @@
-# Editor de Texto
+# Editor de Texto — Editor de Notas (Tkinter)
 
-Editor de texto desktop desenvolvido em Python usando a biblioteca Tkinter. O projeto oferece uma interface simples, moderna e funcional para criar, editar, formatar e imprimir documentos de texto.
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Status](https://img.shields.io/badge/status-beta-yellow.svg)]
+
+Uma aplicação desktop leve para edição de textos e notas, desenvolvida em Python puro com Tkinter. Fornece edição básica e recursos avançados (busca/substituição, formatação de fonte e parágrafo, inserção de tabelas em texto e impressão) com interface simples.
+
+---
+
+## Índice
+
+- [Demonstração](#demonstra%C3%A7%C3%A3o)
+- [Funcionalidades](#funcionalidades)
+- [Instalação](#instala%C3%A7%C3%A3o)
+- [Uso](#uso)
+- [Atalhos de teclado](#atalhos-de-teclado)
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Desenvolvimento](#desenvolvimento)
+- [Contribuição](#contribui%C3%A7%C3%A3o)
+- [Licença](#licen%C3%A7a)
+- [Autor](#autor)
+
+---
+
+## Demonstração
+
+> Adicione uma captura de tela em `docs/screenshot.png` ou `assets/screenshot.png`.
+
+![Captura de tela](docs/screenshot.png)
+
+> Se não houver imagem ainda, remova ou substitua o caminho acima.
+
+---
 
 ## Funcionalidades
 
-- Criação de novos arquivos
-- Abertura de arquivos `.txt`
-- Salvamento e salvamento como
-- Desfazer e refazer
-- Seleção total e atalhos de teclado
-- Busca e substituição com opções avançadas
-- Destaque de ocorrências encontradas
-- Alteração de fonte, tamanho, estilo e cor
-- Formatação de parágrafos (alinhamento, recuo e espaçamento)
-- Inserção de tabelas em diferentes estilos
-- Impressão do documento na impressora padrão do sistema
-- Confirmação antes de sair com alterações não salvas
+- Criar, abrir e salvar arquivos `.txt`
+- Desfazer/refazer e seleção total
+- Busca e substituição com opções (diferenciar maiúsculas, palavra inteira)
+- Realce de ocorrências
+- Diálogo de fonte (família, tamanho, negrito/itálico/sublinhado e cor)
+- Formatação de parágrafos (alinhamento, recuos, espaçamento)
+- Inserção de tabelas em texto (grade, simples, Markdown) com fonte monoespaçada
+- Impressão para a impressora padrão do sistema
+- Confirmação ao sair se houver alterações não salvas
 
-## Tecnologias
+---
 
-- Python 3
-- Tkinter
-- ttk (temas do Tkinter)
+## Instalação
 
-## Requisitos
+Requisitos mínimos:
 
-- Python 3.8 ou superior
-- Tkinter instalado com a distribuição Python
+- Python 3.8+
+- Tkinter (normalmente incluído na instalação padrão do Python)
 
-No Windows e na maioria das distribuições Linux, o Tkinter costuma vir junto com o Python. Caso não esteja disponível, instale a dependência do sistema ou do Python conforme o ambiente.
+Passos rápidos:
 
-## Como executar
-
-1. Clone o repositório:
+1. Clone este repositório:
 
 ```bash
 git clone https://github.com/EmersonLopes2589/editor_texto.git
 cd editor_texto
 ```
 
-2. Execute o arquivo principal:
+2. Execute a aplicação:
 
 ```bash
 python Editor_Texto.py
-```
-
-Ou, em alguns sistemas:
-
-```bash
+# ou
 python3 Editor_Texto.py
 ```
+
+Se o Tkinter não estiver disponível, instale-o via gerenciador da sua distribuição ou com:
+
+- Debian/Ubuntu: sudo apt install python3-tk
+- Fedora: sudo dnf install python3-tkinter
+
+---
+
+## Uso
+
+A aplicação é principalmente orientada por GUI; abra, edite e salve arquivos pelo menu "Arquivo".
+
+- Para imprimir, use Arquivo → Imprimir... (ou `Ctrl+P`).
+- Use o diálogo "Inserir tabela" para gerar tabelas em texto alinhadas corretamente.
+- Alterações de fonte aplicadas à seleção usam tags internas, preservando a fonte padrão do documento.
+
+---
+
+## Atalhos de teclado
+
+- Ctrl + N — Novo arquivo
+- Ctrl + O — Abrir
+- Ctrl + S — Salvar
+- Ctrl + P — Imprimir
+- Ctrl + F — Localizar
+- Ctrl + H — Substituir
+- Ctrl + Z — Desfazer
+- Ctrl + Y — Refazer
+- Ctrl + A — Selecionar tudo
+
+---
 
 ## Estrutura do projeto
 
 ```text
 editor_texto/
-├── Editor_Texto.py
-└── README.md
+├── Editor_Texto.py    # Código principal (Tkinter)
+├── README.md
+└── docs/              # (opcional) capturas de tela e documentação
 ```
 
-## Capturas de tela
+---
 
-O projeto possui uma interface de edição com menu, barra de ferramentas visuais de edição e janelas de diálogo para:
+## Desenvolvimento
 
-- localizar e substituir texto
-- alterar fonte
-- ajustar parágrafo
-- inserir tabela
+Dicas rápidas para desenvolvedores:
 
-## Uso rápido
+- Código principal em `Editor_Texto.py` — a aplicação é um único módulo Tkinter.
+- Tags de texto: `fonte_*` para fontes aplicadas localmente, `par_*` para parágrafos, `tabela_mono` para tabelas.
+- Para testar alterações rapidamente, execute `python Editor_Texto.py` em um ambiente virtual com o Python desejado.
 
-- `Ctrl + N`: novo arquivo
-- `Ctrl + O`: abrir arquivo
-- `Ctrl + S`: salvar
-- `Ctrl + P`: imprimir
-- `Ctrl + F`: localizar
-- `Ctrl + H`: substituir
-- `Ctrl + Z`: desfazer
-- `Ctrl + Y`: refazer
-- `Ctrl + A`: selecionar tudo
+Sugerimos formatar o código com ferramentas como `black` e adicionar linters (`flake8`) se quiser manter estilo/qualidade.
 
-## Observações
+---
 
-Este projeto foi desenvolvido como um editor de anotações e textos com recursos de edição mais completos do que um bloco de notas básico, mantendo uma interface simples e leve em Python.
+## Contribuição
+
+Contribuições são bem-vindas! Abra uma issue para discutir mudanças grandes antes de enviar pull requests.
+
+Padrões sugeridos:
+
+- Fork → branch com nome `feat/<nome>` ou `fix/<nome>` → pull request
+- Mantenha commits pequenos e descritivos
+- Inclua testes ou passos para reproduzir o comportamento quando relevante
+
+---
 
 ## Licença
 
-Este repositório não possui uma licença definida no momento.
+No momento este repositório não inclui um arquivo de licença. Se quiser, posso adicionar uma licença permissiva (por exemplo, MIT) — diga qual prefere.
+
+---
 
 ## Autor
 
 Emerson Lopes
+
+
+
+---
+
+Se quiser, eu posso:
+
+- adicionar badges adicionais (build / release / license),
+- incluir uma captura de tela real se você enviar a imagem ou o caminho correto,
+- criar um arquivo LICENSE (MIT, Apache-2.0, GPLv3, etc.),
+- separar o projeto em pacotes ou adicionar um instalador.
